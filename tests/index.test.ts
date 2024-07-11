@@ -1,5 +1,5 @@
 import supertest, { Response } from "supertest";
-import app from "../server";
+const app = require("../src/app");
 import { describe } from "node:test";
 
 describe("GET /", () => {
@@ -27,3 +27,6 @@ describe("GET /projects", () => {
     expect(mockResponse.status).toBe(200);
   });
 });
+// afterAll((done) => {
+//   done();
+// });

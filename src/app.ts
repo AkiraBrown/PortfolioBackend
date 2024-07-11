@@ -23,5 +23,4 @@ app.use("/", (req: Request, res: Response) => {
 app.all("*", (req: Request, res: Response) => {
   res.status(404).send("Page Not Found");
 });
-
 module.exports = app;

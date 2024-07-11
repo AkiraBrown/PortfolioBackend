@@ -9,6 +9,7 @@ const cn = {
   database: PG_DATABASE,
   user: PG_USER,
   password: PG_PASSWORD,
+  allowExitOnIdle: true,
 };
 
 const db = pgp(cn);
