@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(express.json());
 app.use(cors("*"));
 app.use("/blogs", BlogController);
-app.use("/project", ProjectController);
+app.use("/projects", ProjectController);
 
 app.use("/", (req: Request, res: Response) => {
   console.log("Welcome to my portfolio");

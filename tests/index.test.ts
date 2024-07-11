@@ -11,4 +11,19 @@ describe("GET /", () => {
 });
 
 //Blogs test
+
+describe("GET /blogs", () => {
+  it("Should respond with an array", async () => {
+    const mockResponse: Response = await supertest(app).get("/blogs");
+    expect(Array.isArray(mockResponse["_body"])).toBeTruthy();
+    expect(mockResponse.status).toBe(200);
+  });
+});
 // Project test
+describe("GET /projects", () => {
+  it("Should respond with an array", async () => {
+    const mockResponse: Response = await supertest(app).get("/projects");
+    expect(Array.isArray(mockResponse["_body"])).toBeTruthy();
+    expect(mockResponse.status).toBe(200);
+  });
+});
