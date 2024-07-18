@@ -1,0 +1,1 @@
+INSERT INTO blogs(title, date_uploaded, file_path) VALUES("test3","2024-07-15T14:22:47.036Z",'../db/Blogdb/test3.md') RETURNING *;

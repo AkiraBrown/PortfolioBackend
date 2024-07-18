@@ -1,10 +1,16 @@
 const { readdir, stat } = require("node:fs/promises");
 
-// const { getAllBlogs } = require("../queries/blog.ts");
-// const db = require("../db/dbConfig.ts");
+const { getAllBlogs, createBlog } = require("../queries/blog.ts");
+const fs = require("fs");
 const getDirFile = async () => {
   try {
-    const fileArr = await readdir("../db/Blogdb", { withFileType: false });
+    if (!fs.existsSync("./src/db/Blogdb")) {
+      fs.mkdirSync("./src/db/Blogdb");
+      console.log("made Dir");
+    }
+    const fileArr = await fs.readdirSync("./src/db/Blogdb", {
+      withFileType: false,
+    });
     return fileArr;
   } catch (error) {
     return error;
@@ -13,7 +19,7 @@ const getDirFile = async () => {
 
 const getCreationDate = async (fileName) => {
   try {
-    const { birthtimeMs } = await stat(`../db/Blogdb/${fileName}`);
+    const { birthtimeMs } = await stat(`./src/db/Blogdb/${fileName}`);
     return new Date(birthtimeMs);
   } catch (error) {
     return error;
@@ -26,13 +32,15 @@ const fillSqlDatabase = async () => {
     const sqlObj = {
       title: files[i].replace(/\..*/, ""),
       date_uploaded: await getCreationDate(files[i]),
-      file_path: `../db/Blogdb/${files[i]}`,
+      file_path: `./src/db/Blogdb/${files[i]}`,
     };
     files[i] = sqlObj;
   }
-  console.log(files);
+
+  for (const file of files) {
+    await createBlog(file);
+  }
+  const allBlogs = await getAllBlogs();
+  console.log("Done:", allBlogs);
 };
 fillSqlDatabase();
-// module.exports = {
-//   fillSqlDatabase,
-// };

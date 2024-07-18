@@ -9,7 +9,6 @@ const {
   deleteBlog,
 } = require("../queries/blog");
 // const blog_file_path = "../db/Blogdb";
-// const { fillSqlDatabase } = require("../lib/BlogSeed.ts");
 
 router.get("/", async (_: Request, res: Response) => {
   try {
@@ -35,7 +34,6 @@ router.post("/new-blog", async (req: Request, res: Response) => {
   const file_path = `../db/Blogdb/${title.replace(/\s/g, "_")}.md`;
   try {
     const result = await createBlog({ title, date_uploaded, file_path });
-    console.log(result);
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json(error);
