@@ -14,7 +14,6 @@ CREATE TABLE projects(
 CREATE TABLE blogs(
     id SERIAL PRIMARY KEY NOT NULL,
     title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
     date_uploaded DATE NOT NULL,
     file_path VARCHAR NOT NULL
 );

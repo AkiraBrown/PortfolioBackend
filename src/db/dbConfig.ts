@@ -1,5 +1,3 @@
-import { error } from "console";
-
 require("dotenv").config();
 const pgp = require("pg-promise")();
 const { PG_HOST, PG_PORT, PG_DATABASE, PG_USER, PG_PASSWORD } = process.env;
@@ -14,12 +12,12 @@ const cn = {
 
 const db = pgp(cn);
 db.connect()
-  .then((obj: { client: { serverVersion: any }; done: () => void }) => {
+  .then((obj) => {
     const serverVersion = obj.client.serverVersion;
     console.log("postgres connection established", serverVersion);
     obj.done();
   })
-  .catch((error: { message: any }) => {
+  .catch((error) => {
     console.log("ERROR", error.message || error);
   });
 
