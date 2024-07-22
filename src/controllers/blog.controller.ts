@@ -8,7 +8,6 @@ const {
   createBlog,
   deleteBlog,
 } = require("../queries/blog");
-// const blog_file_path = "../db/Blogdb";
 
 router.get("/", async (_: Request, res: Response) => {
   try {

@@ -9,7 +9,7 @@
     "dev": "nodemon server.ts",
     "seed": "npx ts-node ./src/db/BlogSeed.ts",
     "pg:init": "psql -U postgres -f src/db/schema.sql",
-    "restart": "psql -U postgres -f src/db/schema.sql; nodemon server.ts",
+    "restart": "psql -U postgres -f src/db/schema.sql; npx ts-node ./src/db/BlogSeed.ts ;nodemon server.ts",
     "prepare": "husky install"
   },
   "author": "",
