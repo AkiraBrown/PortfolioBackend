@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-const fs = require("fs");
+const fs = require("node:fs");
 const router = express.Router();
 const {
   getAllBlogs,
@@ -22,6 +22,8 @@ router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const result = await getOneBlog(id);
+    let selectFile = await fs.readFileSync(result.file_path, "utf8");
+    result.fileData = selectFile.toString();
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json(error);

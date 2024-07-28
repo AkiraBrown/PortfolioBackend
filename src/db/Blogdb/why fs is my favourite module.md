@@ -1,4 +1,4 @@
-# Why 'fs' is the best node module!
+# Why 'fs' is my favourite node module!
 
 In NodeJS there's a huge library of modules available to developers for all of your needs. In my experience, the fs module has been the king so far. ![logo](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
 
