@@ -16,10 +16,13 @@ app.use(cors("*"));
 app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
 
+app.set("view engine", "ejs");
+
 app.use("/", (req: Request, res: Response) => {
   console.log("Welcome to my portfolio");
   res.send("Welcome to my portfolio");
 });
+
 app.all("*", (req: Request, res: Response) => {
   res.status(404).send("Page Not Found");
 });

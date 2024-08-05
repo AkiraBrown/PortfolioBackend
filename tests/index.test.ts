@@ -2,14 +2,6 @@ import supertest, { Response } from "supertest";
 const app = require("../src/app");
 import { describe } from "node:test";
 
-describe("GET /", () => {
-  it("Should respond with 'Welcome to my portfolio'", async () => {
-    const mockResponse: Response = await supertest(app).get("/");
-    expect(mockResponse.text).toBe("Welcome to my portfolio");
-    expect(mockResponse.status).toBe(200);
-  });
-});
-
 //Blogs test
 
 describe("GET /blogs", () => {

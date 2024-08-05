@@ -1,4 +1,11 @@
-# Why 'fs' is my favourite node module!
+---
+title: Why fs is my favourite node module
+date: 2024-07-18T04:00:00.000Z
+description: A reflection on my interaction with using Node's fs module and how i've used it in this project
+cover_image: https://iocoding.com/wp-content/uploads/2024/04/Filesystem-Node.js-FS.png
+---
+
+# Why fs is my favourite node module!
 
 In NodeJS there's a huge library of modules available to developers for all of your needs. In my experience, the fs module has been the king so far. ![logo](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
 
@@ -6,7 +13,7 @@ One of my favourite NodeJS modules is fs The fs module stands for 'file system' 
 
 In this function "getDirectoryFiles" we...
 
-1. Check if the repository Blogdb.
+1. Check if the repository is in Blogdb folder.
 2. Make the directory if it doesn't exist.
 3. Read the directory to get all the file names within the directory. These would be the markdown files that this blog is from.
 

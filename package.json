@@ -18,8 +18,10 @@
     "@types/pg-promise": "^0.0.28",
     "cors": "^2.8.5",
     "dotenv": "^16.4.0",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-fileupload": "^1.5.1",
+    "marked": "^13.0.3",
     "pg-promise": "^11.9.0",
     "typescript": "^5.5.3"
   },
