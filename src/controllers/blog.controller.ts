@@ -29,8 +29,7 @@ router.get("/custom-test/:id", async (req, res) => {
     let selectFile = await fs.readFileSync(result.file_path, "utf8").toString();
     let formattedFile = marked.parse(selectFile);
     result.content = formattedFile;
-    res.send(formattedFile);
-    // res.render("index", { title: result.title, content: formattedFile });
+    res.status(200).send(formattedFile);
   } catch (error) {
     res.status(500).json({ error: error });
   }

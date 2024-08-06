@@ -1,13 +1,8 @@
----
-title: Why fs is my favourite node module
-date: 2024-07-18T04:00:00.000Z
-description: A reflection on my interaction with using Node's fs module and how i've used it in this project
-cover_image: https://iocoding.com/wp-content/uploads/2024/04/Filesystem-Node.js-FS.png
----
-
 # Why fs is my favourite node module!
 
-In NodeJS there's a huge library of modules available to developers for all of your needs. In my experience, the fs module has been the king so far. ![logo](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
+In NodeJS there's a huge library of modules available to developers for all of your needs. In my experience, the fs module has been the king so far!
+
+![logo](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
 
 One of my favourite NodeJS modules is fs The fs module stands for 'file system' and allows you to read, write, create and delete files in your system. This can be really helpful in backend systems especially when you want to manage a local store of data. In fact this repository actually uses the fs module to get all markdown files in a particular directory and use information about each file to populate a sql table with information about those markdown files.
 

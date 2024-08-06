@@ -16,8 +16,6 @@ app.use(cors("*"));
 app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
 
-app.set("view engine", "ejs");
-
 app.use("/", (req: Request, res: Response) => {
   console.log("Welcome to my portfolio");
   res.send("Welcome to my portfolio");
