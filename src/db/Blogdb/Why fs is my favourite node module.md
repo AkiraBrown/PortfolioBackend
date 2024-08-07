@@ -4,9 +4,9 @@ In NodeJS there's a huge library of modules available to developers for all of y
 
 ![logo](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
 
-One of my favourite NodeJS modules is fs The fs module stands for 'file system' and allows you to read, write, create and delete files in your system. This can be really helpful in backend systems especially when you want to manage a local store of data. In fact this repository actually uses the fs module to get all markdown files in a particular directory and use information about each file to populate a sql table with information about those markdown files.
+One of my favourite NodeJS modules is fs the fs module, it stands for 'file system' and allows you to read, write, create and delete files in your system. This can be really helpful in backend systems especially when you want to manage a local store of data. In fact this repository actually uses the fs module to get all markdown files in a particular directory and use information about each file to populate a sql table with information about those markdown files.
 
-In this function "getDirectoryFiles" we...
+### In this function "getDirectoryFiles" we...
 
 1. Check if the repository is in Blogdb folder.
 2. Make the directory if it doesn't exist.

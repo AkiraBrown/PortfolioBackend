@@ -21,28 +21,15 @@ router.get("/", async (_: Request, res: Response) => {
     res.status(500).json(error);
   }
 });
-router.get("/custom-test/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const result = await getOneBlog(id);
-    console.log(result);
-    let selectFile = await fs.readFileSync(result.file_path, "utf8").toString();
-    let formattedFile = marked.parse(selectFile);
-    result.content = formattedFile;
-    res.status(200).send(formattedFile);
-  } catch (error) {
-    res.status(500).json({ error: error });
-  }
-});
 
 router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const result = await getOneBlog(id);
-    let selectFile = await fs.readFileSync(result.file_path, "utf8");
-    result.fileData = selectFile.toString();
-    delete result.file_path;
-    res.status(200).json(result);
+    let selectFile = await fs.readFileSync(result.file_path, "utf8").toString();
+    let formattedFile = marked.parse(selectFile);
+    result.content = formattedFile;
+    res.status(200).send(formattedFile);
   } catch (error) {
     res.status(500).json(error);
   }
