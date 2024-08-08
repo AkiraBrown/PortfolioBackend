@@ -2,7 +2,7 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-npm lint-staged
+npm i lint-staged
 # npm install --save-dev husky
 
 # npx husky init
