@@ -1,9 +1,3 @@
 #!/usr/bin/env sh
 
 . "$(dirname "$0")/_/husky.sh"
-
-npm i lint-staged
-# npm install --save-dev husky
-
-# npx husky init
-# npx --no-install commitlint --edit
