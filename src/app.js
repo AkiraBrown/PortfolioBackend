@@ -17,11 +17,10 @@ app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
 
 app.use("/", (req, res) => {
-  console.log("Welcome to my portfolio");
   res.send("Welcome to my portfolio");
 });
 
-app.use("*", (req, res) => {
+app.get("*", (req, res) => {
   res.status(404).send("Page Not Found");
 });
 module.exports = app;
