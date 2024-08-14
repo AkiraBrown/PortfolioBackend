@@ -1,4 +1,4 @@
-const projectDB = require("../db/dbConfig");
+const projectDB = require("../db/dbConfig.js");
 const getAllProjects = async () => {
   try {
     const allProjects = await projectDB.any(`SELECT * FROM projects`);

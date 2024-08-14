@@ -3,8 +3,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 /// Controllers
-const BlogController = require("./controllers/blog.controller");
-const ProjectController = require("./controllers/project.controller");
+const BlogController = require("./controllers/blog.controller.js");
+const ProjectController = require("./controllers/project.controller.js");
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use("/", (req, res) => {
   res.send("Welcome to my portfolio");
 });
 
-app.all("*", (req, res) => {
+app.use("*", (req, res) => {
   res.status(404).send("Page Not Found");
 });
 module.exports = app;

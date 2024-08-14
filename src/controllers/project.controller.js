@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getAllProjects } = require("../queries/project");
+const { getAllProjects } = require("../queries/project.js");
 
 router.get("/", async (_, res) => {
   try {

@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("node:fs");
 const marked = require("marked");
 const router = express.Router();
-const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog");
+const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog.js");
 
 router.get("/", async (_, res) => {
   try {
