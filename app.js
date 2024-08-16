@@ -13,14 +13,18 @@ if (process.env.NODE_ENV === "development") {
 }
 app.use(express.json());
 app.use(cors("*"));
+
 app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
+app.get("/test2", (req, res) => {
+  res.send("This is to see what app is doing");
+});
 
 app.use("/", (req, res) => {
   res.send("Welcome to my portfolio");
 });
 
-app.get("*", (req, res) => {
+app.all("*", (req, res) => {
   res.status(404).send("Page Not Found");
 });
 module.exports = app;

@@ -1,7 +1,7 @@
-const blogDB = require("../db/dbConfig.js");
+const db = require("../db/dbConfig");
 const getAllBlogs = async () => {
   try {
-    const allBlogs = await blogDB.any(`SELECT * FROM blogs`);
+    const allBlogs = await db.any(`SELECT * FROM blogs`);
     return allBlogs;
   } catch (error) {
     return error;
@@ -9,9 +9,7 @@ const getAllBlogs = async () => {
 };
 const getOneBlog = async (id) => {
   try {
-    const selectBlog = await blogDB.one(`SELECT * FROM blogs WHERE id=$1`, [
-      id,
-    ]);
+    const selectBlog = await db.one(`SELECT * FROM blogs WHERE id=$1`, [id]);
     return selectBlog;
   } catch (error) {
     return error;
@@ -19,7 +17,7 @@ const getOneBlog = async (id) => {
 };
 const updateBlog = async ({ id, title }) => {
   try {
-    const updatedBlog = await blogDB.one(
+    const updatedBlog = await db.one(
       "UPDATE blogs SET title=$1 WHERE id=$2 RETURNING *",
       [title, id]
     );
@@ -30,7 +28,7 @@ const updateBlog = async ({ id, title }) => {
 };
 const createBlog = async ({ title, date_uploaded, file_path }) => {
   try {
-    const newBlog = await blogDB.one(
+    const newBlog = await db.one(
       "INSERT INTO blogs(title, date_uploaded, file_path) VALUES($1,$2,$3) RETURNING *",
       [title, date_uploaded, file_path]
     );
@@ -41,7 +39,7 @@ const createBlog = async ({ title, date_uploaded, file_path }) => {
 };
 const deleteBlog = async (id) => {
   try {
-    const deletedBlog = await blogDB.one(
+    const deletedBlog = await db.one(
       "DELETE FROM blogs WHERE id=$1 RETURNING *",
       [id]
     );

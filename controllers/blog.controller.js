@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("node:fs");
 const marked = require("marked");
 const router = express.Router();
-const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog.js");
+const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog");
 
 router.get("/", async (_, res) => {
   try {
@@ -16,10 +16,18 @@ router.get("/", async (_, res) => {
     });
     res.status(200).json(result);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ message: error.message, error: error.error });
   }
 });
 
+router.get("/test", async (req, res) => {
+  console.log("Here");
+  try {
+    res.status(200).send("You've hit the Blog route");
+  } catch (error) {
+    res.status(404).json({ message: error.message, error: error.error });
+  }
+});
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -30,15 +38,7 @@ router.get("/:id", async (req, res) => {
     result.content = formattedFile;
     res.status(200).send(formattedFile);
   } catch (error) {
-    res.status(500).json(error);
-  }
-});
-router.get("/test", async (req, res) => {
-  console.log("Here", req);
-  try {
-    res.status(200).send("You've hit the Blog route");
-  } catch (error) {
-    res.status(404).json(error);
+    res.status(500).json({ message: error.message, error: error.error });
   }
 });
 
@@ -49,7 +49,7 @@ router.post("/new-blog", async (req, res) => {
     const result = await createBlog({ title, date_uploaded, file_path });
     res.status(200).json(result);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ message: error.message, error: error.error });
   }
 });
 
