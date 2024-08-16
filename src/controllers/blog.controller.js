@@ -24,12 +24,21 @@ router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const result = await getOneBlog(id);
+    if (!result.title) throw new Error("No blogs found");
     let selectFile = await fs.readFileSync(result.file_path, "utf8").toString();
     let formattedFile = marked.parse(selectFile);
     result.content = formattedFile;
     res.status(200).send(formattedFile);
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+router.get("/test", async (req, res) => {
+  console.log("Here", req);
+  try {
+    res.status(200).send("You've hit the Blog route");
+  } catch (error) {
+    res.status(404).json(error);
   }
 });
 
