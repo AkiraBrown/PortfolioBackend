@@ -1,6 +1,5 @@
-import supertest from "supertest";
+const supertest = require("supertest");
 const app = require("../src/app");
-import { describe } from "node:test";
 
 //Blogs test
 
