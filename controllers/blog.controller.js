@@ -7,6 +7,8 @@ const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog");
 router.get("/", async (_, res) => {
   try {
     const result = await getAllBlogs();
+    if (result.length === 0)
+      throw new Error({ message: `There was an issue ${result}` });
     result.forEach((element) => {
       delete element.file_path;
       const year = new Date(element.date_uploaded).getUTCFullYear();
