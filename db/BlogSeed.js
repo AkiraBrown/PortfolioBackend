@@ -74,6 +74,7 @@ class BlogManager {
 
   async fillSqlDatabase() {
     const files = await this.getDirectoryFiles();
+    //TODO change to array.forEach
     for (const file of files) {
       const sqlObj = {
         title: file.replace(/\..*/, ""),
@@ -84,6 +85,18 @@ class BlogManager {
     }
     const allBlogs = await getAllBlogs();
     console.log("Done:", allBlogs);
+    let sqlFileContent = `INSERT INTO blogs(title, date_uploaded,file_path) VALUES`;
+    const blogArr = allBlogs.map(({ title, date_uploaded, file_path }) => {
+      const year = new Date(date_uploaded).getUTCFullYear();
+      const month = new Date(date_uploaded).getUTCMonth() + 1;
+      const day = new Date(date_uploaded).getUTCDate();
+      date_uploaded = `${month}/${day}/${year}`;
+      return `('${title}','${date_uploaded.toString()}','${file_path}')`;
+    });
+    sqlFileContent += blogArr.join(", ");
+    console.log(sqlFileContent);
+    sqlFileContent += ";";
+    require("fs").writeFileSync("./db/blogData.sql", sqlFileContent);
   }
 
   async run() {
