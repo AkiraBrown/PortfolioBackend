@@ -7,16 +7,18 @@ const { getAllBlogs, getOneBlog, createBlog } = require("../queries/blog");
 router.get("/", async (_, res) => {
   try {
     const result = await getAllBlogs();
-    if (result.length === 0)
+    if (!result.length) {
       throw new Error({ message: `There was an issue ${result}` });
-    result.forEach((element) => {
-      delete element.file_path;
-      const year = new Date(element.date_uploaded).getUTCFullYear();
-      const month = new Date(element.date_uploaded).getUTCMonth() + 1;
-      const day = new Date(element.date_uploaded).getUTCDate();
-      element.date_uploaded = `${month}/${day}/${year}`;
-    });
-    res.status(200).json(result);
+    } else {
+      result.forEach((element) => {
+        delete element.file_path;
+        const year = new Date(element.date_uploaded).getUTCFullYear();
+        const month = new Date(element.date_uploaded).getUTCMonth() + 1;
+        const day = new Date(element.date_uploaded).getUTCDate();
+        element.date_uploaded = `${month}/${day}/${year}`;
+      });
+      res.status(200).json(result);
+    }
   } catch (error) {
     res.status(500).json({ message: error.message, error: error.error });
   }
