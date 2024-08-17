@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server.js",
+    "deploy": "npm install; psql -U postgres -f ./db/schema.sql; node ./db/BlogSeed.js; psql -U postgres -f ./db/ProjectSeed.sql",
     "seedProj": "psql -U postgres -f ./db/ProjectSeed.sql",
-    "seedBlog": "node ./src/db/BlogSeed.js",
+    "seedBlog": "node ./db/BlogSeed.js",
     "seed": "psql -U postgres -f ./db/ProjectSeed.sql; node ./db/BlogSeed.js",
     "pg:init": "psql -U postgres -f ./db/schema.sql",
     "restart": "psql -U postgres -f ./db/schema.sql; psql -U postgres -f ./db/ProjectSeed.sql; node ./db/BlogSeed.js ;nodemon server.js",
