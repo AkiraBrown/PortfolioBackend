@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server.js",
-    "deploy": "npm install; psql -U postgres -f ./db/schema.sql; node ./db/BlogSeed.js; psql -U postgres -f ./db/ProjectSeed.sql",
+    "deploy": "npm install; node ./db/BlogSeed.js",
     "seedProj": "psql -U postgres -f ./db/ProjectSeed.sql",
     "seedBlog": "node ./db/BlogSeed.js",
     "seed": "psql -U postgres -f ./db/ProjectSeed.sql; node ./db/BlogSeed.js",
