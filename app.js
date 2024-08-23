@@ -5,6 +5,7 @@ const cors = require("cors");
 /// Controllers
 const BlogController = require("./controllers/blog.controller.js");
 const ProjectController = require("./controllers/project.controller.js");
+const PingController = require("./controllers/ping.controller.js");
 
 const app = express();
 
@@ -16,9 +17,7 @@ app.use(cors("*"));
 
 app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
-app.get("/test2", (req, res) => {
-  res.send("This is to see what app is doing");
-});
+app.get("/ping", PingController);
 
 app.use("/", (req, res) => {
   res.send("Welcome to my portfolio");

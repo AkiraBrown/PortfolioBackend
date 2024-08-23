@@ -21,3 +21,8 @@ CREATE TABLE blogs(
     date_uploaded DATE NOT NULL,
     file_path VARCHAR NOT NULL
 );
+
+CREATE TABLE ping(
+    id SERIAL PRIMARY KEY NOT NULL,
+    last_ping DATE NOT NULL
+)
