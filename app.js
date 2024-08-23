@@ -17,7 +17,7 @@ app.use(cors("*"));
 
 app.use("/blogs", BlogController);
 app.use("/projects", ProjectController);
-app.get("/ping", PingController);
+app.use("/ping", PingController);
 
 app.use("/", (req, res) => {
   res.send("Welcome to my portfolio");
