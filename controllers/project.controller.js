@@ -3,9 +3,7 @@ const router = express.Router();
 
 router.get("/", async (_, res) => {
   try {
-    let result = (
-      await fetch("https://api.github.com/users/akirabrown/repos")
-    ).json();
+    let result = await fetch("https://api.github.com/users/akirabrown/repos");
     result = await result.json();
     res.status(200).json(result);
   } catch (error) {

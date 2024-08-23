@@ -6,7 +6,6 @@ const app = require("../app");
 describe("GET /blogs", () => {
   it("Should respond with an array", async () => {
     const mockResponse = await supertest(app).get("/blogs");
-    console.log(mockResponse.body);
     expect(Array.isArray(mockResponse.body)).toBeTruthy();
     expect(mockResponse.status).toBe(200);
   });
@@ -24,7 +23,7 @@ describe("GET /blogs", () => {
 describe("GET /projects", () => {
   it("Should respond with an array", async () => {
     const mockResponse = await supertest(app).get("/projects");
-    expect(Array.isArray(mockResponse["_body"])).toBeTruthy();
+    expect(Array.isArray(mockResponse.body)).toBeTruthy();
     expect(mockResponse.status).toBe(200);
   });
 });
